@@ -1,0 +1,109 @@
+🏛️ MAIN PREMISE (simple + strong)
+Centuries ago, a powerful civilization fell after misusing ancient relics.
+Now, the Ruin Warden — a corrupted guardian — controls the heart of the old kingdom.
+
+You’re a scavenger trying to uncover relics, 
+survive the ruins, and eventually confront the Warden before the corruption spreads.
+
+📜 STORY PROGRESSION (ACT 1 → ACT 3)
+Think of this like chapters or milestones you can easily implement in CLI.
+
+ACT 1 — The Fallen Frontier
+Goal: Learn the world + get your first relic
+Gameplay Loop:
+Start in a safe camp with a basic shop.
+
+NPC explains ruins have “Prime Relics” that grant access to deeper areas.
+
+You explore low-level ruins, fight weak enemies, gather gold, maybe find relic scraps.
+
+First small boss → drops your First Prime Relic.
+
+Story Beat:
+You learn corruption is spreading faster than expected. Time is limited.
+
+ACT 2 — The Shattered Expanse
+Goal: Collect all 3 Prime Relics
+Gameplay Loop:
+This is where the game opens up:
+
+Each region has a theme (Forest Ruins, Sand Ruins, Crystal Ruins).
+
+Shops start selling useful relic upgrades.
+
+Enemies get quirks (poison, armor, dodge).
+
+Mid‑bosses in each region drop the remaining Prime Relics.
+
+Story Beat:
+An NPC warns you:
+
+“The Warden wasn’t always a monster… it once protected us.”
+
+Hints of lore and the tragedy behind the boss.
+
+Optional twist:
+The shops slowly get more expensive due to spreading corruption.
+
+ACT 3 — The Heart of Ruin
+Goal: Enter the final dungeon + defeat the Warden
+Gameplay Loop:
+You unlock the final area with the 3 Prime Relics.
+
+Final shop acts as your last preparation point.
+
+Gauntlet of stronger enemies (maybe puzzles too).
+
+Boss Fight: The Ruin Warden
+
+Has phases
+
+Uses relic powers against you
+
+Forces real strategy: items, equipped relics, timing
+
+Story Beat (Ending Options):
+You get to choose an ending based on relics collected:
+
+ENDING A — Cleanse the Warden
+You free its spirit → world slowly recovers.
+
+ENDING B — Take the Warden’s Core
+You gain ultimate power → corruption now follows YOU.
+(Sets up a sequel.)
+
+ENDING C — Escape with the relics
+You bail, selling relics to the highest bidder.
+(Comedic/greedy ending.)
+
+🧩 SIDE ELEMENTS YOU CAN ADD ANYTIME
+These don’t break the structure and can be implemented when you feel like it:
+
+✔ Random relic effects
++10% crit
+
+Life steal
+
+Discount at shops
+
+Enemy‑specific damage
+
+✔ Random encounters
+Traveling merchant
+Lost wanderer
+Ambush
+Cursed shrine
+
+✔ Mini‑bosses
+Optional relic‑holders in dead ends.
+
+🎯 How this helps your coding
+Easy chapter progression = clean functions/modules
+
+Prime relics = perfect boolean locks for areas
+
+Shops = dictionaries + list management
+
+Boss phases = fun conditional logic
+
+Random encounters = great practice with RNG
