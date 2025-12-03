@@ -1,5 +1,5 @@
 from clear_terminal import clear_terminal as ct
-from interactions import intro, introhouse, forest_start
+from interactions import intro, introhouse, forest_start, the_house
 
 def main():
     #Start screen
@@ -23,8 +23,18 @@ def main():
             introchoice2 = int(input(">"))
             if introchoice2 == 1:
                 ct()
-                print("You decided to knock on the door...")
-                break
+                print("You raise your hand and knock\n" \
+                "For a moment, nothing but wind through the trees." \
+                "\nThen — a slow, deliberate creaking from inside." \
+                "\nA voice, old and weary, answers:\n'No one’s lived here in decades" \
+                " Why disturb the dead?'\nThe door remains shut.\nYou feel the air grow cold.")
+                the_house()
+                enter = int(input(">"))
+                if enter == 1:
+                    print("You knocked again...")
+                elif enter ==2:
+                    print("You tired to push the door open.")
+
             else:
                 print("You decided to go back")
                 ct()
@@ -42,7 +52,7 @@ def main():
                ct()
                print("There seems to be a miserious barrier that is stoping you from entering!")
                break
-            elif forestchoice == 2:
+            else:
                 print("You decided to go back.")
                 ct()
                 continue
