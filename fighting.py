@@ -9,20 +9,20 @@ while True:
         print("Chose an action to do: ")
         print("1. Attack⚔️                  2. Defend🛡️")
         print("3. Special Attackr💫         4. Check Inventory🎒")
-        player_turn = int(input(">"))
-        if player_turn == 1:
+        player_choice = int(input(">"))
+        if player_choice == 1:
             player_attack()
             player_turn = False
             enemy_turn = True
-        elif player_turn == 2:
+        elif player_choice == 2:
             player_defend()
             player_turn = False
             enemy_turn = True
-        elif player_turn == 3:
+        elif player_choice == 3:
             player_special()
             player_turn = False
             enemy_turn = True
-        elif player_turn == 4:
+        elif player_choice == 4:
             player_inventory()
             player_turn = False
             enemy_turn = True
