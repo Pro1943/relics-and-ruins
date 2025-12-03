@@ -5,4 +5,5 @@ def introhouse():
     print("1. Knock on the door")
     print("2. Go back")
 def forest_start():
-    print("")
+    print("1. Enter the forest.")
+    print("2. Go back")

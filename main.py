@@ -31,6 +31,7 @@ def main():
             ct()
             print("You decided to go the the forest.")
             forest_start()
+            forestchoice = int(input(">"))
 
 
 
