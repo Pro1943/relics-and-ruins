@@ -5,11 +5,11 @@ def main():
     #Start screen
     print("Centuries ago, a powerful civilization fell after misusing ancient relics.")
     print("Now, the Ruin Warden — a corrupted guardian — controls the heart of the old kingdom.")
-    print("You're a scavenger trying to uncover relics, survive the ruins, and eventually confront the Warden before the corruption spreads.")
+    print("You're a scavenger trying to uncover relics, survive the ruins, and eventually confront the Warden before the corruption spreads.\n")
 
     #Intro
     while True:
-        print("\nYou stumble upon a random old house in the woods...")
+        print("You stumble upon a random old house in the woods...")
         print("\nWhat will you do?")
         intro()
         print("[Enter the dedicated number]")
