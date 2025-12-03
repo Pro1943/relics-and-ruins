@@ -9,7 +9,7 @@ def main():
 
     #Intro
     while True:
-        print("You stumble upon a random old house in the woods...")
+        print("You stumbled upon a random old house in the woods...")
         print("\nWhat will you do?")
         intro()
         print("[Enter the dedicated number]")
@@ -31,7 +31,7 @@ def main():
                 continue
         else:
             ct()
-            print("You decided to go the the forest.")
+            print("You stumdled upon a dense forest. \nWho knows what this is hiding?")
             forest_start()
             forestchoice = int(input(">"))
             if forestchoice == 1 and village_key == True:
