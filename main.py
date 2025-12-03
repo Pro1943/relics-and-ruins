@@ -8,13 +8,13 @@ def main():
     print("You're a scavenger trying to uncover relics, survive the ruins, and eventually confront the Warden before the corruption spreads.\n")
 
     #Intro
+    village_key = False
     while True:
         print("You stumbled upon a random old house in the woods...")
         print("\nWhat will you do?")
         intro()
         print("[Enter the dedicated number]")
 
-        village_key = False
         introchoice = int(input(">"))
         if introchoice == 1:
             ct()
