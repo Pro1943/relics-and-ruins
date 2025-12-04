@@ -12,4 +12,4 @@ def iron_scrap():
     saleable = True
 def gold_scrap():
     loot_type = "rare"
-    function = 
+    function = "armor_player"
