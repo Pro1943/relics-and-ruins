@@ -1,17 +1,22 @@
-#Enemy Functions
 import random
 
 def enemy_logic():
+    damage = 0
+    defence_gain = 0
+    
     turn = random.randint(1,100)
-    if turn in range(1,51): #50% chance
-        print("Enemy attack!")
+    
+    if turn in range(1, 51): #Attack
         damage = random.randint(1, 19)
-    elif turn in range(51,58): #6% chance
-        print("Enemy defend")
-        defence = random.randint(1,3)
-    elif turn in range(58,70): #11% chance
-        print("Enemy miss")
+        print(f"Enemy used simple slash for {damage} damage!")
+    elif turn in range(51, 58): #Defend
+        defence_gain = random.randint(1, 3)
+        print(f"Enemy defends, gaining {defence_gain} defence!")
+    elif turn in range(58, 70): #Miss
         damage = 0
-    elif turn in range(70,101):  #30% chance
-        print("Enemy special")
-        damage = random.randint(20,40)
+        print("Enemy miss!")
+    elif turn in range(70, 101): #Special
+        damage = random.randint(20, 40)
+        print(f"Enemy uses a special attack for {damage} damage!")
+        
+    return damage, defence_gain
