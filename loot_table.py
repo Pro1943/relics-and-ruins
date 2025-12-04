@@ -2,4 +2,9 @@
 def bone():
     loot_type = "common"
     saleable = True
-    
+def leather():
+    loot_type = "common"
+    saleable = True
+    function = "armor_player"
+def iron_scrap():
+    loot_type = ""
