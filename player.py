@@ -1,4 +1,6 @@
 #Player functions
+from fighting import player_hp
+
 def player_attack():
     print("Player_attack")
 def player_defend():
