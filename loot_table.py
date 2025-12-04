@@ -1,4 +1,4 @@
-#define class of the loot with a loot name. Loot type, fuctions, effects on player
+#Loot_table of the Player
 def bone():
     loot_type = "common"
     saleable = True
@@ -7,4 +7,9 @@ def leather():
     saleable = True
     function = "armor_player"
 def iron_scrap():
-    loot_type = ""
+    loot_type = "common"
+    function = "armor_player"
+    saleable = True
+def gold_scrap():
+    loot_type = "rare"
+    function = 

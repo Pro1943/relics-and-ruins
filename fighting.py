@@ -10,9 +10,9 @@ enemy_hp = 100
 
 while True:
     if player_turn == True and enemy_turn == False:
-        print("Chose an action to do: ")
+        print("Choose an action to do: ")
         print("1. Attack⚔️                  2. Defend🛡️")
-        print("3. Special Attackr💫         4. Check Inventory🎒")
+        print("3. Special Attack💫         4. Check Inventory🎒")
         player_choice = int(input(">"))
         if player_choice == 1:
             player_attack()
