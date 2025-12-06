@@ -1,8 +1,9 @@
 #Loot_table of the Player
-# Mainly, there are 3 types of loots: 
-# 1. Common
-# 2. rare
-# 3. epic 
+''' 
+Mainly, there are 3 types of loots: 
+ 1. Common    2. rare    3. epic 
+loots : bone, leather, iron scrap, gold scrap, dragon eye, diamond, ruby, berry
+  '''
             
 def bone():
     loot_type = "common"
@@ -66,5 +67,13 @@ def ruby():
         "loot_type": "rare",
         "saleable" : True,
         "function" : "selling only"
+    } 
+def berry():
+    loot_type = "common"
+    function = "food"
+    saleable = False
+    return {
+        "loot_type": "common",
+        "saleable" : False,
+        "function" : "food"
     }
-#this is a test

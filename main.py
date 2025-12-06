@@ -39,10 +39,10 @@ def main():
             
             if introchoice2 == 1:
                 ct()
-                print("You raise your hand and knock\n" \
+                print("You raised your hand and knocked\n" \
                 "For a moment, nothing but wind through the trees." \
                 "\nThen — a slow, deliberate creaking from inside." \
-                "\nA voice, old and weary, answers:\n'No one’s lived here in decades" \
+                "\nA voice, old and weary, answers:\n'No one’s lived here for decades" \
                 " Why disturb the dead?'\nThe door remains shut.\nYou feel the air grow cold.")
                 the_house()
                 
@@ -60,7 +60,7 @@ def main():
                     break
             elif introchoice2 == 2:
                 ct() 
-                print("You decide to step away from the house.")
+                print("You decided to step away from the house.")
                 continue 
         
         elif introchoice == 2: 
@@ -78,7 +78,7 @@ def main():
                 break
             elif forestchoice == 1 and village_key == False:
                 ct()
-                print("There seems to be a miserious barrier that is stoping you from entering!")
+                print("There seems to be a mysterious barrier that is stopping you from entering!")
                 #TO-BE-ADDED-LATER
                 break
             elif forestchoice == 2:
