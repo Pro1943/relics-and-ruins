@@ -1,6 +1,7 @@
 from clear_terminal import clear_terminal as ct
 from player import player_attack, player_defend, player_special, player_inventory
 from enemy import enemy_logic
+from drops import *
 
 player_turn = True
 enemy_turn = False
@@ -81,3 +82,4 @@ if player_hp <= 0:
     print("GAME OVER! You were defeated.")
 elif enemy_hp <= 0:
     print("VICTORY! The enemy has been defeated.")
+    dropped()
