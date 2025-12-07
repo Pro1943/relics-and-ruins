@@ -7,7 +7,7 @@ def player_attack():
     return damage
 def player_defend():
     print("You prepare to defend...")
-    defence_boost = 1
+    defence_boost = 5
     return defence_boost
 def player_special():
     damage = random.randint(20, 40)

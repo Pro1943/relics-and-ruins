@@ -12,8 +12,8 @@ def diamond_states():
     return("Diamond:\n",diamond())
 def ruby_states():
     return("Ruby:\n",ruby())
-def dragon_eye_state():
+def dragon_eye_states():
     return("dragon eye:\n",diamond())
-def berry_state():
+def berry_states():
     return("berry:\n",berry())
 

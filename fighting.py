@@ -1,5 +1,5 @@
 from clear_terminal import clear_terminal as ct
-from player import player_attack, player_defend, player_special, player_inventory
+from player import *
 from enemy import enemy_logic
 from drops import *
 
@@ -16,12 +16,10 @@ def get_valid_input(prompt, valid_range=None):
         try:
             choice = int(choice_input)
             if valid_range and choice not in valid_range:
-                ct()
                 print("❌ Invalid input. Please select a listed option.")
                 continue
             return choice
         except ValueError:
-            ct()
             print("❌ Invalid input. Please enter a number.")
             continue
 

@@ -1,5 +1,5 @@
 from clear_terminal import clear_terminal as ct
-from interactions import intro, introhouse, forest_start, the_house
+from interactions import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:
