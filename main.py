@@ -1,5 +1,6 @@
 from clear_terminal import clear_terminal as ct
 from interactions import *
+from battles import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:
@@ -51,13 +52,15 @@ def main():
                 if enter == 1:
                     ct()
                     print("You knocked again...")
-                    #TO-BE-ADDED-LATER
+                    intro_fight()
                     break
+                    
                 elif enter == 2:
                     ct()
                     print("You tried to push the door open.")
-                    #TO-BE-ADDED-LATER
+                    intro_fight()
                     break
+                
             elif introchoice2 == 2:
                 ct() 
                 print("You decided to step away from the house.")

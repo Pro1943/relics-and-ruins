@@ -1,32 +1,32 @@
 import random
 from loot_table import *
 
-bone_drop = bone() #common
-leather_drop = leather() #common
-iron_scrap_drop = iron_scrap() #common
-berry_drop = berry() #common
+# Preload all items
+COMMON_LOOT = [bone(), leather(), iron_scrap(), berry()]
+RARE_LOOT = [gold_scrap(), ruby()]
+EPIC_LOOT = [diamond(), dragon_eye()]
 
-gold_scrap_drop = gold_scrap() #rare
-ruby_drop = ruby() #rare
+# Get a random item from each tier
+def get_common():
+    return random.choice(COMMON_LOOT)
 
-diamond_drop = diamond() #epic
-dragon_eye_drop = dragon_eye() #epic
+def get_rare():
+    return random.choice(RARE_LOOT)
 
-test = 0
+def get_epic():
+    return random.choice(EPIC_LOOT)
 
-def common_item():
-    drop = random.randint(1,37)
-    if drop in range(1,13):
-        return"Bone"
-    elif drop in range(13,25):
-        return"Leather"
-    elif drop in range(25,30):
-        return"Berry"
-    else:
-        return"Iron Scrap"
+# Main drop function
+def drop_item():
+    roll = random.randint(1, 100)
 
+    # Rarity chances
+    if roll <= 70:          # 70% Common
+        item = get_common()
+    elif roll <= 90:        # 20% Rare
+        item = get_rare()
+    else:                   # 10% Epic
+        item = get_epic()
 
-def dropped():
-    chance = random.randint(1,72)
-    if chance in range(1,71):                                                                                               #70% chance
-        print(f"You got {common_item()}")
+    print(f"You got: {item['name']} [{item['loot_type']}]")
+    return item

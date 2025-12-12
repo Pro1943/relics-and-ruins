@@ -1,4 +1,5 @@
 #Player functions
+from inventory import *
 import random
 
 def player_attack():
@@ -15,5 +16,5 @@ def player_special():
     return damage
 def player_inventory():
     print("Player_Inventory")
-    #To_Be_Added_Later
+    inventory()
     return 0
