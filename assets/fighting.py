@@ -2,6 +2,8 @@ from .clear_terminal import clear_terminal as ct
 from .player import *
 from .enemy import enemy_logic
 from .inventory import *
+from .game_over import *
+from .victory import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:
@@ -77,8 +79,10 @@ def fighting():
             enemy_turn = False
 
     if player_hp <= 0:
-        print("GAME OVER! You were defeated.")
+        game_over_screen()
     elif enemy_hp <= 0:
-        print("VICTORY! The enemy has been defeated.")
         inv_add()
         save_inv()
+        input("Press a key to continue...")
+        ct()
+        victory_screen()

@@ -1,4 +1,12 @@
 #Python Cache
 __pycache__/
+#Saveing Cache
 saveing/save_files/*.json
+#Dev tests
 test.txt
+#Piinstaller Cache
+main.spec
+RelicsAndRunes.spec
+build
+dist/saveing
+dist/saves
