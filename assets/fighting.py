@@ -23,8 +23,8 @@ def fighting():
     player_hp = 100
     enemy_hp = 100
     defence = 0
+    load_inv()
     while player_hp > 0 and enemy_hp > 0:
-    
         if player_turn == True and enemy_turn == False:
             print(f"\nYour HP: {player_hp} | Enemy HP: {enemy_hp}")
             print("Choose an action to do: ")
@@ -81,3 +81,4 @@ def fighting():
     elif enemy_hp <= 0:
         print("VICTORY! The enemy has been defeated.")
         inv_add()
+        save_inv()

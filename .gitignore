@@ -1,2 +1,4 @@
 #Python Cache
 __pycache__/
+saveing/save_files/*.json
+test.txt
