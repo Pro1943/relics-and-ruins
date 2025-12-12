@@ -6,73 +6,57 @@ loots : bone, leather, iron scrap, gold scrap, dragon eye, diamond, ruby, berry
 '''
             
 def bone():
-    loot_type = "common"
-    saleable = True
-    function = "selling only"
     return {
+        "name" : "Bone",
         "loot_type": "common",
         "saleable": True,
         "function": "selling only"
     }
 def leather():
-    loot_type = "common"
-    saleable = True
-    function = "armor_player"
     return {
+        "name" : "Leather",
         "loot_type": "common",
         "saleable": True,
         "function": "armor_player"
     }
 def iron_scrap():
-    loot_type = "common"
-    function = "armor_player"
-    saleable = True
     return {
+        "name" : "Iron Scrap",
         "loot_type": "common",
         "saleable": True,
         "function": "armor_player"
     }
 def gold_scrap():
-    loot_type = "rare"
-    function = "armor_player"
-    saleable = True
     return {
+        "name" : "Gold Scrap",
         "loot_type": "rare",
         "saleable": True,
         "function": "armor_player"
     }
 def dragon_eye():
-    loot_type = "epic"
-    function = "selling only"
-    saleable = True
     return {
+        "name": "Dragon Eye",
         "loot_type": "epic",
         "saleable" : True,
         "function" : "selling only"
     }
 def diamond():
-    loot_type = "epic"
-    function = "selling only"
-    saleable = True
     return {
+        "name": "Diamond",
         "loot_type": "epic",
         "saleable" : True,
         "function" : "selling only"
     }
 def ruby():
-    loot_type = "rare"
-    function = "selling only"
-    saleable = True
     return {
+        "name": "Ruby",
         "loot_type": "rare",
         "saleable" : True,
         "function" : "selling only"
     } 
 def berry():
-    loot_type = "common"
-    function = "food"
-    saleable = False
     return {
+        "name": "Berry",
         "loot_type": "common",
         "saleable" : False,
         "function" : "food"
