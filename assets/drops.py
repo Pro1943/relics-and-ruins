@@ -1,5 +1,5 @@
 import random
-from loot_table import *
+from .loot_table import *
 
 # Preload all items
 COMMON_LOOT = [bone(), leather(), iron_scrap(), berry()]

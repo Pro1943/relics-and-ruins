@@ -1,5 +1,5 @@
 #Player functions
-from inventory import *
+from .inventory import *
 import random
 
 def player_attack():

@@ -1,6 +1,6 @@
-from clear_terminal import clear_terminal as ct
-from interactions import *
-from battles import *
+from assets.clear_terminal import clear_terminal as ct
+from assets.interactions import *
+from assets.battles import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:

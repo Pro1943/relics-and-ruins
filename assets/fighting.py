@@ -1,7 +1,7 @@
-from clear_terminal import clear_terminal as ct
-from player import *
-from enemy import enemy_logic
-from inventory import *
+from .clear_terminal import clear_terminal as ct
+from .player import *
+from .enemy import enemy_logic
+from .inventory import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:

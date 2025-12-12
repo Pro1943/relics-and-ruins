@@ -1,4 +1,4 @@
-from loot_table import *
+from .loot_table import *
 
 def bone_states():
     return("Bone:\n",bone())

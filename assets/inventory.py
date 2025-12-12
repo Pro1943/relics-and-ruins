@@ -1,4 +1,4 @@
-from drops import drop_item
+from .drops import drop_item
 
 inv = []
 
