@@ -68,7 +68,7 @@ def game_intro():
                 
                 if enter == 1:
                     ct()
-                    print("        You knocked again...")
+                    print("         You knocked again...")
                     intro_fight()
                     return
                     
