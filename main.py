@@ -68,13 +68,13 @@ def game_intro():
                 
                 if enter == 1:
                     ct()
-                    print("You knocked again...")
+                    print("        You knocked again...")
                     intro_fight()
                     return
                     
                 elif enter == 2:
                     ct()
-                    print("You tried to push the door open.")
+                    print("        You tried to push the door open.")
                     intro_fight()
                     return
                 

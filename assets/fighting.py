@@ -2,9 +2,9 @@ from .clear_terminal import clear_terminal as ct
 from .player import *
 from .enemy import enemy_logic
 from .inventory import *
-from .game_over import *
-from .victory import *
-from .colors import *
+from assets.screens.game_over import *
+from assets.screens.victory import *
+from assets.screens.colors import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:
@@ -35,11 +35,11 @@ def fighting():
 
     while player_hp > 0 and enemy_hp > 0:
         if player_turn and not enemy_turn:
-            print(f"\nYour HP: {player_hp} | Enemy HP: {enemy_hp}")
+            print(f"\nYour HP❤️: {player_hp} | Enemy HP🖤: {enemy_hp}")
             print(f"Special Attacks Left: {special_uses}")
             print("Choose an action to do:")
-            print(f"1. {RED}Attack⚔️{RESET}               2. {YELLOW}Defend🛡️{RESET}")
-            print(f"3. {LIGHT_CYAN}Special Attack💫{RESET}       4. {LIGHT_GREEN}Check Inventory🎒{RESET}")
+            print(f"1. {RED}Attack⚔️{RESET}                 2. {YELLOW}Defend🛡️{RESET}")
+            print(f"3. {LIGHT_CYAN}Special Attack💫{RESET}        4. {LIGHT_GREEN}Check Inventory🎒{RESET}")
 
             player_choice = get_valid_input(">", [1, 2, 3, 4])
 

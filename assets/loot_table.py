@@ -4,7 +4,7 @@ Mainly, there are 3 types of loots:
  1. Common    2. rare    3. epic 
 loots : bone, leather, iron scrap, gold scrap, dragon eye, diamond, ruby, berry
 '''
-from .colors import *
+from assets.screens.colors import *
 
 # Common items
 def bone():
