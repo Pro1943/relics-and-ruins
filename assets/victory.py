@@ -1,5 +1,15 @@
 from .colors import *
+from colorama import Fore, Style, init
+init(autoreset=True)
+
 def victory_screen():
+    GOLD = Fore.YELLOW
+    GREEN = Fore.GREEN
+    CYAN = Fore.CYAN
+    WHITE = Fore.WHITE
+    BRIGHT = Style.BRIGHT
+    RESET = Style.RESET_ALL
+
     print("\n" * 2)
     print(GREEN+
           r"      ██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗ ")

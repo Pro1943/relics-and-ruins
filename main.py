@@ -1,3 +1,11 @@
+#                                                                                             
+#      ▄▄▄▄▄▄         ▄▄                                        ▄▄▄▄▄▄                        
+#     █▀██▀▀▀█▄        ██                                 █▄   █▀██▀▀▀█▄                      
+#       ██▄▄▄█▀        ██ ▀▀                     ▄        ██     ██▄▄▄█▀        ▀▀ ▄          
+#       ██▀▀█▄   ▄█▀█▄ ██ ██ ▄███▀ ▄██▀█   ▄▀▀█▄ ████▄ ▄████     ██▀▀█▄   ██ ██ ██ ████▄ ▄██▀█
+#     ▄ ██  ██   ██▄█▀ ██ ██ ██    ▀███▄   ▄█▀██ ██ ██ ██ ██   ▄ ██  ██   ██ ██ ██ ██ ██ ▀███▄
+#     ▀██▀  ▀██▀▄▀█▄▄▄▄██▄██▄▀███▄█▄▄██▀  ▄▀█▄██▄██ ▀█▄█▀███   ▀██▀  ▀██▀▄▀██▀█▄██▄██ ▀██▄▄██▀
+#                                                                                             
 from assets.clear_terminal import clear_terminal as ct
 from assets.interactions import *
 from assets.battles import *
@@ -91,7 +99,9 @@ def game_intro():
             elif forestchoice == 1 and village_key == False:
                 ct()
                 print("There seems to be a mysterious barrier that is stopping you from entering!")
-                return
+                input("Press enter to continue...")
+                ct()
+                continue
 
             elif forestchoice == 2:
                 print("You decided to go back.")
@@ -108,9 +118,12 @@ def main():
         elif choice == "2":
             ct()
             print("Load system coming soon.")
-            break
+            input("Press enter to continue...")
+            ct()
+            continue
         elif choice == "3":
             print("Goodbye!")
+            input("Press enter to quit...")
             exit()
         else:
             print("Invalid choice!")
