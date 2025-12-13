@@ -1,7 +1,7 @@
 import json
 import os
 
-SAVE_FILE = "saveing/save_files/inventory.json"
+SAVE_FILE = "saving/save_files/inventory.json"
 
 def load_inventory():
     if not os.path.exists(SAVE_FILE):

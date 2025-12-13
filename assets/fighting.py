@@ -4,6 +4,7 @@ from .enemy import enemy_logic
 from .inventory import *
 from .game_over import *
 from .victory import *
+from .colors import *
 
 def get_valid_input(prompt, valid_range=None):
     while True:
@@ -29,9 +30,9 @@ def fighting():
     while player_hp > 0 and enemy_hp > 0:
         if player_turn == True and enemy_turn == False:
             print(f"\nYour HP: {player_hp} | Enemy HP: {enemy_hp}")
-            print("Choose an action to do: ")
-            print("1. Attack⚔️               2. Defend🛡️")
-            print("3. Special Attack💫      4. Check Inventory🎒")
+            print(f"{GREY}Choose an action to do: "+RESET)
+            print(f"1. {RED}Attack⚔️{RESET}               2. {YELLOW}Defend🛡️{RESET}")
+            print(f"3. {LIGHT_CYAN}Special Attack💫{RESET}      4. {LIGHT_GREEN}Check Inventory🎒{RESET}")
         
             player_choice = get_valid_input(">", [1, 2, 3, 4])
 

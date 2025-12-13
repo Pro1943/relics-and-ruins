@@ -1,3 +1,4 @@
+from colors import *
 def game_over_screen():
     print("\n" * 2)
     print(r" ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ ")
@@ -9,6 +10,6 @@ def game_over_screen():
     print("\n")
     print("             The ruins have claimed you.")
     print("             Your journey ends… for now.\n")
-    print("           Relics & Runes is still in development.")
+    print("           Relics & Ruins is still in development.")
     print("         More chapters and bosses arriving soon.\n")
     input("               Press Enter to exit...")

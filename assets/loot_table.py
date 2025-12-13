@@ -4,12 +4,13 @@ Mainly, there are 3 types of loots:
  1. Common    2. rare    3. epic 
 loots : bone, leather, iron scrap, gold scrap, dragon eye, diamond, ruby, berry
 '''
+from .colors import *
 
 # Common items
 def bone():
     return {
         "name": "Bone",
-        "loot_type": "common",
+        "loot_type": f"{GREY}common",
         "saleable": True,
         "function": "selling only"
     }
@@ -17,7 +18,7 @@ def bone():
 def leather():
     return {
         "name": "Leather",
-        "loot_type": "common",
+        "loot_type": f"{GREY}common",
         "saleable": True,
         "function": "armor_player"
     }
@@ -25,7 +26,7 @@ def leather():
 def iron_scrap():
     return {
         "name": "Iron Scrap",
-        "loot_type": "common",
+        "loot_type": f"{GREY}common",
         "saleable": True,
         "function": "armor_player"
     }
@@ -33,7 +34,7 @@ def iron_scrap():
 def berry():
     return {
         "name": "Berry",
-        "loot_type": "common",
+        "loot_type": f"{GREY}common",
         "saleable": False,
         "function": "food"
     }
@@ -42,7 +43,7 @@ def berry():
 def gold_scrap():
     return {
         "name": "Gold Scrap",
-        "loot_type": "rare",
+        "loot_type": f"{YELLOW}rare",
         "saleable": True,
         "function": "armor_player"
     }
@@ -50,7 +51,7 @@ def gold_scrap():
 def ruby():
     return {
         "name": "Ruby",
-        "loot_type": "rare",
+        "loot_type": f"{YELLOW}rare",
         "saleable": True,
         "function": "selling only"
     }
@@ -59,7 +60,7 @@ def ruby():
 def diamond():
     return {
         "name": "Diamond",
-        "loot_type": "epic",
+        "loot_type": f"{MAGENTA}epic",
         "saleable": True,
         "function": "selling only"
     }
@@ -67,7 +68,7 @@ def diamond():
 def dragon_eye():
     return {
         "name": "Dragon Eye",
-        "loot_type": "epic",
+        "loot_type": f"{MAGENTA}epic",
         "saleable": True,
         "function": "selling only"
     }

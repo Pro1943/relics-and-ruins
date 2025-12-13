@@ -1,12 +1,12 @@
 import os
 import time
-
+from .colors import *
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 def start_screen():
     clear()
-    print(r"""
+    print(YELLOW+r"""
 ██████╗ ███████╗██╗     ██╗ ██████╗███████╗███████╗
 ██╔══██╗██╔════╝██║     ██║██╔════╝██╔════╝██╔════╝
 ██████╔╝█████╗  ██║     ██║██║     █████╗  ███████╗
@@ -14,11 +14,11 @@ def start_screen():
 ██║  ██║███████╗███████╗██║╚██████╗███████╗███████║
 ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝╚══════╝╚══════╝
                 Relics and Runes
-    """)
+    """+RESET)
     print("----------------------------------------------------")
-    print("1. Start Game")
-    print("2. Load Game")
-    print("3. Quit")
+    print(f"{BOLD}{GREEN}1. Start Game"+RESET)
+    print(f"{BOLD}{BLUE}2. Load Game"+RESET)
+    print(f"{BOLD}{RED}3. Quit"+RESET)
     print("----------------------------------------------------")
 
     choice = input("Enter choice: ").strip()

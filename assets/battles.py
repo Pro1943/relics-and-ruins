@@ -1,5 +1,5 @@
 from .fighting import *
-
+from .colors import *
 def intro_fight():
-    print("👻 A wild ghost appeared!! 👻")
+    print(f"👻{BOLD}{RED} A wild ghost appeared!! 👻"+RESET)
     fighting()
