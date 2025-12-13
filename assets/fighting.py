@@ -80,6 +80,7 @@ def fighting():
             enemy_turn = False
 
     if player_hp <= 0:
+        ct()
         game_over_screen()
     elif enemy_hp <= 0:
         inv_add()

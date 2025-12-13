@@ -1,7 +1,8 @@
-from colors import *
+from .colors import *
 def game_over_screen():
     print("\n" * 2)
-    print(r" ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ ")
+    print(RED+
+          r" ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ ")
     print(r"██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗")
     print(r"██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝")
     print(r"██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗")
@@ -9,7 +10,7 @@ def game_over_screen():
     print(r" ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝")
     print("\n")
     print("             The ruins have claimed you.")
-    print("             Your journey ends… for now.\n")
-    print("           Relics & Ruins is still in development.")
-    print("         More chapters and bosses arriving soon.\n")
-    input("               Press Enter to exit...")
+    print("             Your journey ends… for now.\n"+RESET)
+    print(f"{YELLOW}{BOLD}           Relics & Ruins is still in development.")
+    print("         More chapters and bosses arriving soon.\n"+RESET)
+    input(f"{GREY}               Press Enter to exit..."+RESET)
