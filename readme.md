@@ -68,11 +68,11 @@ pip install -r requirments.txt
 python main.py
 
 #For compiling it into an .exe use the following command
-pyinstaller --windowed --name RelicsAndRunes --icon assets/icon/game_icon.ico main.py
+pyinstaller --onefile --windowed --name RelicsAndRunes --icon assets/icon/game_icon.ico main.py
 
 #or
 
-python -m PyInstaller --windowed --name RelicsAndRunes --icon assets/icon/game_icon.ico main.py
+python -m PyInstaller --onefile --windowed --name RelicsAndRunes --icon assets/icon/game_icon.ico main.py
 ```
 
 The game launches in **GUI mode** using **PySide6**.
