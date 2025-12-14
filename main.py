@@ -1,9 +1,11 @@
-"""
-GUI launcher for Relics & Ruins.
-
-This replaces the original CLI entrypoint with a PySide6 GUI.
-If PySide6 is unavailable, prints guidance to install requirements.
-"""
+'''
+      ▄▄▄▄▄▄         ▄▄                                        ▄▄▄▄▄▄                        
+     █▀██▀▀▀█▄        ██                                 █▄   █▀██▀▀▀█▄                      
+       ██▄▄▄█▀        ██ ▀▀                     ▄        ██     ██▄▄▄█▀        ▀▀ ▄          
+       ██▀▀█▄   ▄█▀█▄ ██ ██ ▄███▀ ▄██▀█   ▄▀▀█▄ ████▄ ▄████     ██▀▀█▄   ██ ██ ██ ████▄ ▄██▀█
+     ▄ ██  ██   ██▄█▀ ██ ██ ██    ▀███▄   ▄█▀██ ██ ██ ██ ██   ▄ ██  ██   ██ ██ ██ ██ ██ ▀███▄
+     ▀██▀  ▀██▀▄▀█▄▄▄▄██▄██▄▀███▄█▄▄██▀  ▄▀█▄██▄██ ▀█▄█▀███   ▀██▀  ▀██▀▄▀██▀█▄██▄██ ▀██▄▄██▀
+'''
 import sys
 
 try:
