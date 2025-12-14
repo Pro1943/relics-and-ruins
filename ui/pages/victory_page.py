@@ -67,7 +67,9 @@ class VictoryPage(QWidget):
         btn_layout = QHBoxLayout()
         btn_layout.setAlignment(Qt.AlignCenter)
         restart_btn = QPushButton("🔄 RESTART GAME 🔄")
-        restart_btn.setStyleSheet("""
+        quit_btn = QPushButton("❌ QUIT ❌")
+        
+        button_style = """
             QPushButton {
                 background-color: #d4af37;
                 color: #0a0e27;
@@ -85,10 +87,15 @@ class VictoryPage(QWidget):
             QPushButton:pressed {
                 background-color: #b8941f;
             }
-        """)
+        """
+        
+        restart_btn.setStyleSheet(button_style)
+        quit_btn.setStyleSheet(button_style)
         restart_btn.clicked.connect(self._on_restart)
+        quit_btn.clicked.connect(self._on_quit)
         btn_layout.addStretch()
         btn_layout.addWidget(restart_btn)
+        btn_layout.addWidget(quit_btn)
         btn_layout.addStretch()
 
         layout.addLayout(btn_layout)
@@ -104,4 +111,8 @@ class VictoryPage(QWidget):
 
     def _on_restart(self):
         self.restart_requested.emit()
+
+    def _on_quit(self):
+        import sys
+        sys.exit()
 

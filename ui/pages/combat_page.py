@@ -90,6 +90,8 @@ class CombatPage(QWidget):
         self.defend_btn = QPushButton("🛡️  DEFEND  🛡️")
         self.special_btn = QPushButton("✨ SPECIAL ✨")
         self.inv_btn = QPushButton("🎒 INVENTORY 🎒")
+        self.continue_btn = QPushButton("➜ CONTINUE ➜")
+        self.continue_btn.setVisible(False)
 
         button_style = """
             QPushButton {
@@ -115,13 +117,14 @@ class CombatPage(QWidget):
             }
         """
         
-        for btn in [self.attack_btn, self.defend_btn, self.special_btn, self.inv_btn]:
+        for btn in [self.attack_btn, self.defend_btn, self.special_btn, self.inv_btn, self.continue_btn]:
             btn.setStyleSheet(button_style)
 
         btn_layout.addWidget(self.attack_btn)
         btn_layout.addWidget(self.defend_btn)
         btn_layout.addWidget(self.special_btn)
         btn_layout.addWidget(self.inv_btn)
+        btn_layout.addWidget(self.continue_btn)
 
         layout.addLayout(btn_layout)
 
@@ -148,12 +151,12 @@ class CombatPage(QWidget):
             }
         """)
         layout.addWidget(self.log)
-
         # connections
         self.attack_btn.clicked.connect(self.on_attack)
         self.defend_btn.clicked.connect(self.on_defend)
         self.special_btn.clicked.connect(self.on_special)
         self.inv_btn.clicked.connect(self.on_inventory)
+        self.continue_btn.clicked.connect(self.on_continue)
 
     def set_state(self, state):
         self.state = state
@@ -191,8 +194,8 @@ class CombatPage(QWidget):
             item = self.state.inv_add()
             self.append_log(f"You got: {item['name']} [{item.get('loot_type', '')}]")
             self.state.save()
-            self.combat_ended.emit()
-            return  # Victory will be triggered by parent
+            self.show_continue_button()
+            return  # Wait for user to click Continue
 
         e = self.state.enemy_action()
         self.append_log(f"\n{e['msg']}")
@@ -200,8 +203,8 @@ class CombatPage(QWidget):
             self.append_log(f"You take {e['actual_damage']} damage.")
         if self.state.player_hp <= 0:
             self.append_log("\n💀 You have been defeated!")
-            self.combat_ended.emit()
-            return  # GameOver will be triggered by parent
+            self.show_continue_button()
+            return  # Wait for user to click Continue
         self.update_ui()
         self.are_buttons_enabled(True)
 
@@ -238,7 +241,7 @@ class CombatPage(QWidget):
             item = self.state.inv_add()
             self.append_log(f"You got: {item['name']} [{item.get('loot_type', '')}]")
             self.state.save()
-            self.combat_ended.emit()
+            self.show_continue_button()
             return
         e = self.state.enemy_action()
         self.append_log(f"{e['msg']}")
@@ -246,7 +249,7 @@ class CombatPage(QWidget):
             self.append_log(f"You take {e['actual_damage']} damage.")
         if self.state.player_hp <= 0:
             self.append_log("\n💀 You have been defeated!")
-            self.combat_ended.emit()
+            self.show_continue_button()
             return
         self.update_ui()
         self.are_buttons_enabled(True)
@@ -262,3 +265,20 @@ class CombatPage(QWidget):
                 self.append_log(f"{i}. {it.get('name', 'Unknown')} - {it.get('loot_type','')}")
             self.append_log("--- End Inventory ---\n")
         self.are_buttons_enabled(True)
+
+    def show_continue_button(self):
+        """Show Continue button and hide action buttons."""
+        self.attack_btn.setVisible(False)
+        self.defend_btn.setVisible(False)
+        self.special_btn.setVisible(False)
+        self.inv_btn.setVisible(False)
+        self.continue_btn.setVisible(True)
+
+    def on_continue(self):
+        """Handle Continue button click."""
+        self.continue_btn.setVisible(False)
+        self.attack_btn.setVisible(True)
+        self.defend_btn.setVisible(True)
+        self.special_btn.setVisible(True)
+        self.inv_btn.setVisible(True)
+        self.combat_ended.emit()

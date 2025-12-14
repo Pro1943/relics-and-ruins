@@ -15,7 +15,7 @@ class GameState:
         self.player_hp = 100
         self.enemy_hp = 100
         self.defence = 0
-        self.special_uses = 4
+        self.special_uses = 3
         self.inv = _load_inventory() or []
         self.enemy_specials_used = 0
 
@@ -95,7 +95,7 @@ class GameState:
         self.player_hp = 100
         self.enemy_hp = 100
         self.defence = 0
-        self.special_uses = 4
+        self.special_uses = 3
         self.enemy_specials_used = 0
 
 
