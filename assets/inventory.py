@@ -2,22 +2,19 @@ from .drops import drop_item
 from saveing.save import save_inventory as save_inv_file
 from saveing.load import load_inventory as load_inv_file
 
-inv = []
-
-def inv_add():
+def inv_add(inv_list):
     item = drop_item()
-    inv.append(item)
+    inv_list.append(item)
+    return item
 
-def inventory():
-    print("\nYour Inventory:")
-    if not inv:
-        print(" - Your bag is empty - ")
-    for i, item in enumerate(inv, 1):
-        print(f"{i}. {item['name']} ({item['loot_type']})")
+def inventory_list(inv_list):
+    """Return a list of inventory display strings."""
+    if not inv_list:
+        return ["- Your bag is empty -"]
+    return [f"{i}. {item['name']} ({item.get('loot_type', '')})" for i, item in enumerate(inv_list, 1)]
 
-def save_inv():
-    save_inv_file(inv)
+def save_inv(inv_list):
+    save_inv_file(inv_list)
 
 def load_inv():
-    global inv
-    inv = load_inv_file()
+    return load_inv_file()

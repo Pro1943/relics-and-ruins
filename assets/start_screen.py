@@ -1,35 +1,19 @@
-import os
-from colorama import Fore, Style, init
+"""Start screen helper adapted for GUI.
 
-init(autoreset=True)
+Provides data needed to render the start screen (ASCII art preserved).
+"""
 
-def clear():
-    os.system("cls" if os.name == "nt" else "clear")
-
-def start_screen():
-    clear()
-
-    GOLD = Fore.YELLOW
-    CYAN = Fore.CYAN
-    GREEN = Fore.GREEN
-    WHITE = Fore.WHITE
-    RESET = Style.RESET_ALL
-    BRIGHT = Style.BRIGHT
-
-    print(GOLD + BRIGHT + r"""
+ASCII_TITLE = r"""
 ██████╗ ███████╗██╗     ██╗ ██████╗███████╗     █████╗ ███╗   ██╗██████╗     ██████╗ ██╗   ██╗██╗███╗   ██╗███████╗
 ██╔══██╗██╔════╝██║     ██║██╔════╝██╔════╝    ██╔══██╗████╗  ██║██╔══██╗    ██╔══██╗██║   ██║██║████╗  ██║██╔════╝
 ██████╔╝█████╗  ██║     ██║██║     ███████╗    ███████║██╔██╗ ██║██║  ██║    ██████╔╝██║   ██║██║██╔██╗ ██║███████╗
 ██╔══██╗██╔══╝  ██║     ██║██║     ╚════██║    ██╔══██║██║╚██╗██║██║  ██║    ██╔══██╗██║   ██║██║██║╚██╗██║╚════██║
 ██║  ██║███████╗███████╗██║╚██████╗███████║    ██║  ██║██║ ╚████║██████╔╝    ██║  ██║╚██████╔╝██║██║ ╚████║███████║
 ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
-""" + RESET)
+"""
 
-    print(CYAN + "╔══════════════════════════════════════════════════════════════════════════════════════════════════════╗")
-    print(CYAN + "║" + GREEN + "                                           1. Start Game                                              " + CYAN + "║")
-    print(CYAN + "║" + GREEN + "                                           2. Load Game                                               " + CYAN + "║")
-    print(CYAN + "║" + GREEN + "                                           3. Quit                                                    " + CYAN + "║")
-    print(CYAN + "╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝")
+def get_start_art():
+    return ASCII_TITLE
 
-    choice = input(WHITE + BRIGHT + "\nEnter choice: " + RESET).strip()
-    return choice
+def get_start_options():
+    return ["Start Game", "Load Game", "Quit"]
