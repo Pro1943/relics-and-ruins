@@ -20,7 +20,7 @@
 
 # Relics and Ruins
 
-*Prototype v1.0 – Learning-focused, open source, non-commercial*
+*Prototype v0.2 – Foundation for GUI*
 
 ---
 
