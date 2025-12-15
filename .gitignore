@@ -7,7 +7,6 @@ test.txt
 #Piinstaller Cache
 main.spec
 RelicsAndRunes.spec
-build
-dist/saveing
-dist/saves
-RelicsAndRuins.spec
+build/
+dist/
+*.egg-info/

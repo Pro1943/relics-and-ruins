@@ -1,38 +1,54 @@
 import random
+GHOST_ART = r""" 
+                                                  
+              ▒███████                             
+          ▒█████     █████                         
+          ██             ███                       
+         ▒█                ██                      
+       ▒███   ██     ███    █                      
+       ▒█      █       █    █                      
+     ▒▒██         ██      ███                      
+    ▒▒▒██        ████     █                        
+       ▒████      ██     ██                        
+         ▒▒█             ███████                   
+        ▒▒██                   █                   
+        ▒▒█                    █                   
+       ▒▒▒█                    █                   
+     ▒▒▒▒▒██                   █                   
+          ▒███                 ███                 
+          ▒▒▒██                  ███            █  
+         ▒▒▒▒▒███                   ██         █   
+             ▒▒▒████                  ██████████   
+               ▒▒▒▒█                      ████     
+                 ▒▒█       ████     ███████        
+                  ▒████████   ██████               
+                                                   """                                          
 
-def enemy_logic():
-    # Static variable (persists across calls)
-    if not hasattr(enemy_logic, "specials_used"):
-        enemy_logic.specials_used = 0
+def enemy_logic_state():
+    """Stateless enemy decision that returns damage, defence_gain, and a message.
 
+    Note: GameState maintains persistent counters like specials used; prefer
+    using `core.game_state.GameState.enemy_action` for full behavior.
+    """
     damage = 0
     defence_gain = 0
 
     turn = random.randint(1, 100)
 
-    # Normal attack
     def normal_attack():
         dmg = random.randint(1, 19)
-        print(f"Enemy used simple slash for {dmg} damage!")
-        return dmg
+        return dmg, f"Enemy used simple slash for {dmg} damage!"
 
     if turn <= 50:
-        damage = normal_attack()
-
+        dmg, msg = normal_attack()
+        damage = dmg
     elif turn <= 57:
         defence_gain = random.randint(1, 3)
-        print(f"Enemy defends, gaining {defence_gain} defence!")
-
+        msg = f"Enemy defends, gaining {defence_gain} defence!"
     elif turn <= 69:
-        print("Enemy missed!")
-
+        msg = "Enemy missed!"
     else:
-        if enemy_logic.specials_used < 3:
-            damage = random.randint(20, 40)
-            enemy_logic.specials_used += 1
-            print(f"Enemy uses a SPECIAL attack for {damage} damage!")
-        else:
-            print("Enemy tried to use a special… but is exhausted!")
-            damage = normal_attack()
+        damage = random.randint(20, 40)
+        msg = f"Enemy uses a SPECIAL attack for {damage} damage!"
 
-    return damage, defence_gain
+    return {"damage": damage, "defence_gain": defence_gain, "msg": msg}

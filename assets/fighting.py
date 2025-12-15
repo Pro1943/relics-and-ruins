@@ -1,105 +1,45 @@
-from .clear_terminal import clear_terminal as ct
-from .player import *
-from .enemy import enemy_logic
-from .inventory import *
-from assets.screens.game_over import *
-from assets.screens.victory import *
-from assets.screens.colors import *
+"""Non-blocking combat helpers for GUI.
 
-def get_valid_input(prompt, valid_range=None):
-    while True:
-        choice_input = input(prompt)
-        try:
-            choice = int(choice_input)
-            if valid_range and choice not in valid_range:
-                print("❌ Invalid input. Please select a listed option.")
-                continue
-            return choice
-        except ValueError:
-            print("❌ Invalid input. Please enter a number.")
-            continue
+Provides a single-step combat adapter that takes a GameState-like
+object (see `core/game_state.GameState`) and applies the requested action,
+then resolves enemy action and returns a structured event dict.
+"""
 
-def fighting():
-    player_turn = True
-    enemy_turn = False
+def round_with_action(state, action):
+    """Apply a player action ('attack','defend','special','inventory') to the
+    provided `state` and resolve an enemy turn. Returns a dict with event
+    messages and updated hp/defence values."""
+    events = []
 
-    player_hp = 100
-    enemy_hp = 100
-    defence = 0
-    special_uses = 4
+    if action == "attack":
+        res = state.attack()
+        events.append({"type": "player_attack", "damage": res["damage"], "enemy_hp": res["enemy_hp"]})
 
-    load_inv()
-    
-    if hasattr(enemy_logic, "specials_used"):
-        enemy_logic.specials_used = 0
+    elif action == "defend":
+        res = state.defend()
+        events.append({"type": "player_defend", "defence": res["defence"]})
 
-    while player_hp > 0 and enemy_hp > 0:
-        if player_turn and not enemy_turn:
-            print(f"\nYour HP❤️: {player_hp} | Enemy HP🖤: {enemy_hp}")
-            print(f"Special Attacks Left: {special_uses}")
-            print("Choose an action to do:")
-            print(f"1. {RED}Attack⚔️{RESET}                 2. {YELLOW}Defend🛡️{RESET}")
-            print(f"3. {LIGHT_CYAN}Special Attack💫{RESET}        4. {LIGHT_GREEN}Check Inventory🎒{RESET}")
+    elif action == "special":
+        res = state.special()
+        if res.get("used") is False:
+            events.append({"type": "player_special_failed", "reason": res.get("reason")})
+        else:
+            events.append({"type": "player_special", "damage": res.get("damage", 0), "enemy_hp": res.get("enemy_hp")})
 
-            player_choice = get_valid_input(">", [1, 2, 3, 4])
+    elif action == "inventory":
+        # Inventory handled by UI directly via state.inv
+        events.append({"type": "inventory_opened", "inventory": list(state.inv)})
 
-            damage = 0
-            defence_boost = 0
-            turn_end = True
+    # resolve enemy turn if enemy still alive
+    if state.enemy_hp > 0 and state.player_hp > 0:
+        e = state.enemy_action()
+        events.append({"type": "enemy_action", "msg": e.get("msg"), "actual_damage": e.get("actual_damage"), "player_hp": e.get("player_hp")})
 
-            if player_choice == 1:
-                ct()
-                damage = player_attack()
-                enemy_hp -= damage
+    # determine end conditions
+    if state.player_hp <= 0:
+        events.append({"type": "player_defeated"})
+    if state.enemy_hp <= 0:
+        # auto-loot: add randomly via inv_add helper if desired (UI can call inv_add)
+        events.append({"type": "enemy_defeated"})
 
-            elif player_choice == 2:
-                ct()
-                defence_boost = player_defend()
-                defence += defence_boost
-                defence = min(defence, 5)
-
-            elif player_choice == 3:
-                ct()
-                if special_uses > 0:
-                    damage = player_special()
-                    enemy_hp -= damage
-                    special_uses -= 1
-                    print(f"💫 Special attacks left: {special_uses}")
-                else:
-                    print("❌ You are out of special attacks!")
-                    turn_end = False
-
-            elif player_choice == 4:
-                ct()
-                player_inventory()
-                turn_end = False
-
-            if turn_end:
-                player_turn = False
-                enemy_turn = True
-
-        elif enemy_turn and not player_turn:
-            enemy_damage, enemy_defence_gain = enemy_logic()
-
-            actual_damage = max(0, enemy_damage - defence)
-            player_hp -= actual_damage
-
-            defence += enemy_defence_gain
-            defence = max(0, defence - 1)
-
-            if actual_damage > 0:
-                print(f"You took {actual_damage} damage!")
-
-            player_turn = True
-            enemy_turn = False
-
-    if player_hp <= 0:
-        ct()
-        game_over_screen()
-
-    elif enemy_hp <= 0:
-        inv_add()
-        save_inv()
-        input("Press a key to continue...")
-        ct()
-        victory_screen()
+    return {"events": events, "state": {"player_hp": state.player_hp, "enemy_hp": state.enemy_hp, "defence": state.defence}}

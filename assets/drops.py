@@ -27,6 +27,4 @@ def drop_item():
         item = get_rare()
     else:                   # 10% Epic
         item = get_epic()
-
-    print(f"You got: {item['name']} [{item['loot_type']}]")
     return item

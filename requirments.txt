@@ -1,4 +1,2 @@
-REQUIREMENTS:
-    1. Add enemy types with different health points and difficulty
-    2. add food logic which retains the health of the player
-    
+PySide6
+colorama    

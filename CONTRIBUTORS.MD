@@ -20,7 +20,7 @@
 
 # Relics and Ruins
 
-*Prototype v1.0 – Learning-focused, open source, non-commercial*
+*Prototype v0.2 – Foundation for GUI*
 
 ---
 
@@ -28,7 +28,7 @@
 
 | Name / Handle          | Role                        | Contributions                                                                         | GitHub                                                                                      |
 | ---------------------- | --------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Pro_1943 / Pieater9000 | Project Founder & Developer | Game concept, design, fighting system, start & end screens, inventory & saving system, Enemy AI, Battle mechanics, CLI UI | [Pro_1943](https://github.com/Pro1943/) <br> [Pieater9000](https://github.com/Pieater9000/) |
+| Pro_1943 / Pieater9000 | Project Founder & Developer | Game concept, design, fighting system, start & end screens, inventory & saving system, Enemy AI, Battle mechanics, CLI UI, GUI foundation | [Pro_1943](https://github.com/Pro1943/) <br> [Pieater9000](https://github.com/Pieater9000/) |
 | Najesh Afroz Shah      | Co-Developer & Prototype Tester                | Enemy loot table, Designing, Handeling bugs, Correcting game logic & speech                          | [Najesh Afroz Shah](https://github.com/najeshafrozshah-create)                              |
 
 ---
