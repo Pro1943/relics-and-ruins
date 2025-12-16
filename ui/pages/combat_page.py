@@ -10,7 +10,6 @@ from PySide6.QtWidgets import (
     QListWidget,
 )
 from PySide6.QtCore import Qt, Signal
-print(GHOST_ART)
 
 class CombatPage(QWidget):
     combat_ended = Signal()  # Emitted when victory or defeat occurs
@@ -81,6 +80,24 @@ class CombatPage(QWidget):
 
         layout.addWidget(self.player_hp_bar)
         layout.addWidget(self.enemy_hp_bar)
+                # Enemy ASCII art (battle visual)
+        self.enemy_art = QLabel(GHOST_ART)
+        self.enemy_art.setAlignment(Qt.AlignCenter)
+        self.enemy_art.setTextInteractionFlags(Qt.NoTextInteraction)
+
+        self.enemy_art.setStyleSheet("""
+            QLabel {
+                color: #cfd8ff;
+                background-color: #121633;
+                border: 2px solid #d4af37;
+                border-radius: 8px;
+                padding: 12px;
+                font-family: 'Courier New', monospace;
+                font-size: 12pt;
+            }
+        """)
+
+        layout.addWidget(self.enemy_art)
 
         # action buttons with icons
         btn_layout = QHBoxLayout()
@@ -204,7 +221,8 @@ class CombatPage(QWidget):
             self.append_log(f"You take {e['actual_damage']} damage.")
         if self.state.player_hp <= 0:
             self.append_log("\n💀 You have been defeated!")
-            self.show_continue_button()
+            self.show_continue_button(        self.enemy_art.setVisible(False)
+)
             return  # Wait for user to click Continue
         self.update_ui()
         self.are_buttons_enabled(True)
