@@ -66,3 +66,10 @@ def dragon_eye():
         "saleable": True,
         "function": "selling only",
     }
+def defence_potion():
+    return {
+        "name": "defence Potion",
+        "loot_type": "rare",
+        "saleable": False,
+        "function": "food",
+    }
