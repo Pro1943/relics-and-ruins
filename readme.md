@@ -80,7 +80,7 @@ The game launches in **GUI mode** using **PySide6**.
 If PySide6 is missing:
 
 ```bash
-pip install PySide6
+pip install PySide6 colorama
 ```
 
 ---
