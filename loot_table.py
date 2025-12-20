@@ -59,3 +59,15 @@ def defence_potion():
         "saleable" : False,
         "function" : "defence"
     }
+def regenerate_potion():
+    return {
+         "loot_type": "common",
+        "saleable" : True,
+        "function" : "regenerate"
+    }
+def Relic_of_Eternal_Spark():
+    return {
+         "loot_type": "epic",
+        "saleable" : False,
+        "function" : "revive"
+    }
