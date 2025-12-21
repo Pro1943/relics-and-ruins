@@ -1,11 +1,12 @@
 """UI pages package"""
+from .intro_page import IntroPage
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QPushButton,
     QTextEdit,
     QHBoxLayout,
-    QLabel,          # ← THIS WAS MISSING
+    QLabel,          
 )
 from PySide6.QtCore import Signal, Qt
 from PySide6.QtGui import QTextCursor, QPixmap
@@ -68,6 +69,7 @@ class IntroPage(QWidget):
         """)
         layout.addWidget(self.story)
     def set_scene_image(self, path):
+        self.scene_image.setMinimumHeight(220)
         pixmap = QPixmap(path)
         if pixmap.isNull():
             self.scene_image.clear()
@@ -80,3 +82,4 @@ class IntroPage(QWidget):
                 Qt.SmoothTransformation
             )
         )
+

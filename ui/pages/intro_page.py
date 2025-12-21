@@ -6,6 +6,7 @@ from PySide6.QtWidgets import (
     QPushButton,
     QTextEdit,
     QHBoxLayout,
+    QLabel
 )
 from PySide6.QtCore import Signal, Qt
 from PySide6.QtGui import QTextCursor
@@ -17,10 +18,22 @@ class IntroPage(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)
+
         layout = QVBoxLayout(self)
         layout.setContentsMargins(20, 20, 20, 20)
         layout.setSpacing(15)
 
+        self.scene_image = QLabel()
+        self.scene_image.setAlignment(Qt.AlignCenter)
+        self.scene_image.setStyleSheet("""
+            QLabel {
+                background-color: #0a0e27;
+                border: 2px solid #d4af37;
+                border-radius: 8px;
+            }
+        """)
+        layout.addWidget(self.scene_image)
+        
         # Title
         title = QTextEdit()
         title.setReadOnly(True)
@@ -132,7 +145,19 @@ class IntroPage(QWidget):
             )
         elif self.current_scene == "house":
             self.combat_requested.emit()
+    def set_scene_image(self, path):
+        pixmap = QPixmap(path)
+        if pixmap.isNull():
+            self.scene_image.clear()
+            return
 
+        self.scene_image.setPixmap(
+            pixmap.scaled(
+                640, 360,
+                Qt.KeepAspectRatio,
+                Qt.SmoothTransformation
+            )
+        )
     def _on_choice2(self):
         if self.current_scene == "start":
             self.current_scene = "forest"
@@ -152,14 +177,15 @@ class IntroPage(QWidget):
         self.back_requested.emit()
 
     def reset(self):
-        self.set_scene_image("assets/screens/FINAL.png")
         self.current_scene = "start"
+        self.set_scene_image("assets/screens/FINAL.png")
         self.set_story(
-            "Centuries ago, a powerful civilization fell after misusing ancient relics.\n"
-            "Now, the Ruin Warden — a corrupted guardian — controls the heart of the old kingdom.\n"
-            "You're a scavenger trying to uncover relics, survive the ruins,\n"
-            "and eventually confront the Warden before the corruption spreads.\n\n"
-            "You stumbled upon a random old house in the woods...",
-            ["Approach the house", "Continue your journey"]
-        )
+        "Centuries ago, a powerful civilization fell after misusing ancient relics.\n"
+        "Now, the Ruin Warden — a corrupted guardian — controls the heart of the old kingdom.\n"
+        "You're a scavenger trying to uncover relics, survive the ruins,\n"
+        "and eventually confront the Warden before the corruption spreads.\n\n"
+        "You stumbled upon a random old house in the woods...",
+        ["Approach the house", "Continue your journey"]
+    )
+
 

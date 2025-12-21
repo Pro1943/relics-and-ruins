@@ -6,8 +6,7 @@ from PySide6.QtWidgets import (
     QStackedWidget,
     QHBoxLayout,
 )
-from PySide6.QtCore import QTimer
-from PySide6.QtCore import Qt
+from PySide6.QtCore import *
 from .pages.start_page import StartPage
 from .pages.intro_page import IntroPage
 from .pages.combat_page import CombatPage

@@ -221,8 +221,7 @@ class CombatPage(QWidget):
             self.append_log(f"You take {e['actual_damage']} damage.")
         if self.state.player_hp <= 0:
             self.append_log("\n💀 You have been defeated!")
-            self.show_continue_button(self.enemy_art.setVisible(False)
-)
+            self.show_continue_button()
             return  # Wait for user to click Continue
         self.update_ui()
         self.are_buttons_enabled(True)
