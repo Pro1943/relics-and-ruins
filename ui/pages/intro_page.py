@@ -1,4 +1,5 @@
 """Intro story page with branching narrative."""
+import assets.screens 
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -8,7 +9,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Signal, Qt
 from PySide6.QtGui import QTextCursor
-
+from PySide6.QtGui import QPixmap
 
 class IntroPage(QWidget):
     combat_requested = Signal()
@@ -125,7 +126,7 @@ class IntroPage(QWidget):
                 "For a moment, nothing but wind through the trees.\n"
                 "Then — a slow, deliberate creaking from inside.\n"
                 "A voice, old and weary, answers:\n"
-                "'No one's lived here for decades. Why disturb the dead?'\n"
+                "'No one lived here for decades. Why disturb the dead?'\n"
                 "The door remains shut. You feel the air grow cold.",
                 ["Knock again", "Push the door"]
             )
@@ -151,6 +152,7 @@ class IntroPage(QWidget):
         self.back_requested.emit()
 
     def reset(self):
+        self.set_scene_image("assets/screens/FINAL.png")
         self.current_scene = "start"
         self.set_story(
             "Centuries ago, a powerful civilization fell after misusing ancient relics.\n"
