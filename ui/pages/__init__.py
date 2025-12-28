@@ -14,7 +14,6 @@ from PySide6.QtGui import QTextCursor, QPixmap
 class IntroPage(QWidget):
     combat_requested = Signal()
     back_requested = Signal()
-
     def __init__(self, parent=None):
         super().__init__(parent)
 
