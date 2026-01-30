@@ -1,7 +1,4 @@
 import os
 
 def clear_terminal():
-    if os.name == 'nt':
-        os.system('cls')                                                                                            #for windows
-    else:
-        os.system('clear')                                                                                          #for mac_os
+    os.system('cls' if os.name=='nt' else 'clear') # For both windows(all versions), Linux and MacOS
